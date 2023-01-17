@@ -1,8 +1,8 @@
 package com.example.coursework3.service.impl;
 
 import com.example.coursework3.dto.SockRequest;
-import com.example.coursework3.exception.InSufficientSockQuantityException;
-import com.example.coursework3.exception.InvalidSockRequestException;
+import com.example.coursework3.exception.NotEnoughSockQuantityException;
+import com.example.coursework3.exception.NotWrongSockRequestException;
 import com.example.coursework3.model.Color;
 import com.example.coursework3.model.Size;
 import com.example.coursework3.model.Sock;
@@ -45,7 +45,7 @@ public class SockServiceImpl implements SockService {
         if (sockQuantity >= sockRequest.getQuantity()) {
             socks.put(sock, sockQuantity - sockRequest.getQuantity());
         } else {
-            throw new InSufficientSockQuantityException("носков больше нет");
+            throw new NotEnoughSockQuantityException("носков больше нет");
         }
     }
 
@@ -72,13 +72,13 @@ public class SockServiceImpl implements SockService {
 
     private void validateRequest(SockRequest sockRequest) {
         if (sockRequest.getColor() == null || sockRequest.getSize() == null) {
-            throw new InvalidSockRequestException("все поля должны быть заполнены");
+            throw new NotWrongSockRequestException("все поля должны быть заполнены");
         }
         if (sockRequest.getCottonPart() < 0 || sockRequest.getCottonPart() > 100) {
-            throw new InvalidSockRequestException("содержание хлопка должно быть от 0 до 100");
+            throw new NotWrongSockRequestException("содержание хлопка должно быть от 0 до 100");
         }
         if (sockRequest.getQuantity() <= 0) {
-            throw new InvalidSockRequestException("число должно быть больше 0");
+            throw new NotWrongSockRequestException("число должно быть больше 0");
         }
     }
 

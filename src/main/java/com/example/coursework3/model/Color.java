@@ -1,5 +1,7 @@
 package com.example.coursework3.model;
 
 public enum Color {
-    BLACK, RED, YELLOW;
+    BLACK,
+    RED,
+    YELLOW;
 }

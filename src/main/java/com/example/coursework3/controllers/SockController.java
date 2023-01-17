@@ -1,8 +1,8 @@
 package com.example.coursework3.controllers;
 
 import com.example.coursework3.dto.SockRequest;
-import com.example.coursework3.exception.InSufficientSockQuantityException;
-import com.example.coursework3.exception.InvalidSockRequestException;
+import com.example.coursework3.exception.NotEnoughSockQuantityException;
+import com.example.coursework3.exception.NotWrongSockRequestException;
 import com.example.coursework3.model.Color;
 import com.example.coursework3.model.Size;
 import com.example.coursework3.service.SockService;
@@ -18,14 +18,14 @@ public class SockController {
         this.sockService = sockService;
     }
 
-    @ExceptionHandler(InvalidSockRequestException.class)
-    public ResponseEntity<String> handleInvalidException(InvalidSockRequestException invalidSockRequestException) {
-        return ResponseEntity.badRequest().body(invalidSockRequestException.getMessage());
+    @ExceptionHandler(NotWrongSockRequestException.class)
+    public ResponseEntity<String> handleInvalidException(NotWrongSockRequestException notWrongSockRequestException) {
+        return ResponseEntity.badRequest().body(notWrongSockRequestException.getMessage());
     }
 
-    @ExceptionHandler(InSufficientSockQuantityException.class)
-    public ResponseEntity<String> handleInvalidException(InSufficientSockQuantityException inSufficientSockQuantityException) {
-        return ResponseEntity.badRequest().body(inSufficientSockQuantityException.getMessage());
+    @ExceptionHandler(NotEnoughSockQuantityException.class)
+    public ResponseEntity<String> handleInvalidException(NotEnoughSockQuantityException notEnoughSockQuantityException) {
+        return ResponseEntity.badRequest().body(notEnoughSockQuantityException.getMessage());
     }
 
     @PostMapping
