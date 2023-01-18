@@ -13,5 +13,6 @@ public interface SockService {
     int getSockQuantity(Color color, Size size, Integer cottonMin, Integer cottonMax);
 
     void deleteSock(SockRequest sockRequest);
+
 }
 
