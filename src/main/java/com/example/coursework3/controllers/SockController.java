@@ -39,10 +39,10 @@ public class SockController {
     }
 
     @GetMapping
-    public int getSockCount(@RequestParam(required = false, name = "цвет") Color color,
-                            @RequestParam(required = false, name = "размер") Size size,
-                            @RequestParam(required = false, name = "хлопок мин") Integer cottonMin,
-                            @RequestParam(required = false, name = "хлопок макс") Integer cottonMax) {
+    public int getSockCount(@RequestParam(required = false) Color color,
+                            @RequestParam(required = false) Size size,
+                            @RequestParam(required = false) Integer cottonMin,
+                            @RequestParam(required = false) Integer cottonMax) {
         return sockService.getSockQuantity(color, size, cottonMin, cottonMax);
     }
 
