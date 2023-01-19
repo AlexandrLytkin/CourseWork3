@@ -50,4 +50,5 @@ public class SockController {
     public void deleteSock(@RequestBody SockRequest sockRequest) {
         sockService.deleteSock(sockRequest);
     }
+
 }

@@ -37,4 +37,5 @@ public class Sock {
     public int hashCode() {
         return Objects.hash(color, size, cottonPart);
     }
+
 }

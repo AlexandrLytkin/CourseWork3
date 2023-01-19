@@ -40,4 +40,5 @@ public class SockRequest {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
 }
