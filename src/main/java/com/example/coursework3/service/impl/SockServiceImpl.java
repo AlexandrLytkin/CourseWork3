@@ -21,10 +21,10 @@ public class SockServiceImpl implements SockService {
     public void  addSock(SockRequest sockRequest) {
         validateRequest(sockRequest);
         Sock sock = mapToSock(sockRequest);
-        if (socks.containsKey(sock)) {
-            socks.put(sock, socks.get(sock) + sockRequest.getQuantity());
+        if (this.socks.containsKey(sock)) {
+            this.socks.put(sock, this.socks.get(sock) + sockRequest.getQuantity());
         } else {
-            socks.put(sock, sockRequest.getQuantity());
+            this.socks.put(sock, sockRequest.getQuantity());
         }
     }
 
@@ -41,9 +41,9 @@ public class SockServiceImpl implements SockService {
     private void decreaseSockQuantity(SockRequest sockRequest) {
         validateRequest(sockRequest);
         Sock sock = mapToSock(sockRequest);
-        long sockQuantity = socks.getOrDefault(sock, 0L);
+        long sockQuantity = this.socks.getOrDefault(sock, 0L);
         if (sockQuantity >= sockRequest.getQuantity()) {
-            socks.put(sock, sockQuantity - sockRequest.getQuantity());
+            this.socks.put(sock, sockQuantity - sockRequest.getQuantity());
         } else {
             throw new NotEnoughSockQuantityException("носков больше нет");
         }

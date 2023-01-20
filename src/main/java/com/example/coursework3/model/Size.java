@@ -1,7 +1,9 @@
 package com.example.coursework3.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Size {
-    SIZE_37("size",36),
+    SIZE_37("size",37),
     SIZE_39("size",39),
     SIZE_41("size",41);
 
@@ -21,6 +23,7 @@ public enum Size {
         this.unit = unit;
     }
 
+    @JsonValue
     public int getSize() {
         return size;
     }

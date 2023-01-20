@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "color": "BLACK",
-  "size": "SIZE_37",
+  "size": 37,
   "cottonPart": 50,
   "quantity": 10
 }
@@ -14,9 +14,9 @@ Content-Type: application/json
 
 {
   "color": "RED",
-  "size": "SIZE_37",
-  "cottonPart": 50,
-  "quantity": 10
+  "size": 37,
+  "cottonPart": 90,
+  "quantity": 100
 }
 ###
 POST http://localhost:8080/api/sock
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 {
   "color": "YELLOW",
-  "size": "SIZE_37",
+  "size": 37,
   "cottonPart": 0,
   "quantity": 20
 }
@@ -35,7 +35,7 @@ Content-Type: application/json
 
 {
   "color": "RED",
-  "size": "SIZE_37",
+  "size": 37,
   "cottonPart": 50,
   "quantity": 25
 }
@@ -46,15 +46,20 @@ Content-Type: application/json
 
 {
   "color": "BLACK",
-  "size": "SIZE_37",
+  "size": 37,
   "cottonPart": -10,
   "quantity": 25
 }
+###
+POST http://localhost:8080/api/sock?color=RED&size=37&cottonPart=40&quantity=5
+###
+GET http://localhost:8080/api/sock?color=RED&37&cottonmin=90
+
 
 ###
 GET http://localhost:8080/api/sock
 ###
-GET http://localhost:8080/api/sock?color=BLACK
+GET http://localhost:8080/api/sock?color=black
 ###
 GET http://localhost:8080/api/sock?cottonMin=60
 ###
