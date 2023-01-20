@@ -1,5 +1,7 @@
 package com.example.coursework3.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Size {
@@ -13,6 +15,17 @@ public enum Size {
     private Size(String unit, double size) {
         this.unit = unit;
         this.size = (int) size;
+    }
+
+    @JsonCreator
+    public static Size forValues(@JsonProperty("size") String strSize) {
+        for (Size size : Size.values()) {
+            if (
+                    String.valueOf(size.getSize()).equals(strSize)) {
+                return size;
+            }
+        }
+        return null;
     }
 
     public String getUnit() {
