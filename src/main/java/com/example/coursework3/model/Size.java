@@ -3,6 +3,7 @@ package com.example.coursework3.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.jetbrains.annotations.Nullable;
 
 public enum Size {
     SIZE_37("size",37),
@@ -12,13 +13,13 @@ public enum Size {
     private String unit;
     private final int size;
 
-    private Size(String unit, double size) {
+    Size(String unit, double size) {
         this.unit = unit;
         this.size = (int) size;
     }
 
     @JsonCreator
-    public static Size forValues(@JsonProperty("size") String strSize) {
+    public static @Nullable Size forValues(@JsonProperty("size") String strSize) {
         for (Size size : Size.values()) {
             if (
                     String.valueOf(size.getSize()).equals(strSize)) {
@@ -27,6 +28,7 @@ public enum Size {
         }
         return null;
     }
+
 
     public String getUnit() {
         return unit;
