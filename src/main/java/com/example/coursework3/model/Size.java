@@ -6,40 +6,31 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import org.jetbrains.annotations.Nullable;
 
 public enum Size {
-    SIZE_37("size",37),
-    SIZE_39("size",39),
-    SIZE_41("size",41);
+    SIZE_37(37),
+    SIZE_39(39),
+    SIZE_41(41);
 
-    private String unit;
-    private final int size;
+    private final Integer intValue;
 
-    Size(String unit, double size) {
-        this.unit = unit;
-        this.size = (int) size;
+    Size(int size) {
+        this.intValue = size;
     }
 
+
     @JsonCreator
-    public static @Nullable Size forValues(@JsonProperty("size") String strSize) {
+    public static Size forValues(Integer strSize) {
         for (Size size : Size.values()) {
-            if (
-                    String.valueOf(size.getSize()).equals(strSize)) {
+            if (size.getIntValue().equals(strSize)) {
                 return size;
             }
         }
         return null;
     }
 
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
     @JsonValue
-    public int getSize() {
-        return size;
+    public Integer getIntValue() {
+        return this.intValue;
     }
+
 }
+
