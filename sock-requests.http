@@ -26,7 +26,7 @@ Content-Type: application/json
   "color": "YELLOW",
   "size": 37,
   "cottonPart": 0,
-  "quantity": 20
+  "quantity": 200
 }
 
 ###
@@ -52,19 +52,15 @@ Content-Type: application/json
 }
 
 ### не рабочий !!!
-POST http://localhost:8080/api/sock?color=RED&37&cottonPart=40&quantity=5
+POST http://localhost:8080/api/sock?color=RED&size=37&cottonPart=40&quantity=5
 ### не рабочий !!!
-PUT http://localhost:8080/api/socks?color=RED&37&cottonPart=40&quantity=5
+PUT http://localhost:8080/api/sock?COLOR=RED&size=37&cottonPart=40&quantity=5
 
-### рабочий
-GET http://localhost:8080/api/sock?color=RED&37&cottonmin=90
-### не верный формат с size=
-GET http://localhost:8080/api/sock?color=YELLOW&size=37&cottonmin=0
+### нужно реализовать
+GET http://localhost:8080/api/sock?color=YELLOW&SIZE=37&cottonMin=0
+### нужно реализовать
+GET http://localhost:8080/api/sock?color=BLACK&size=37
 
-#- POST /api/socks?color=red&37&cottonPart=40&quantity=5
-#— добавляет на склад пять пар носков красного цвета 37-го размера с долей хлопка в составе 40%;
-#- PUT /api/socks?color=red&37&cottonPart=40&quantity=5
-#— регистрирует отпуск со склада пяти пар носков красного цвета 37-го размера с долей хлопка в составе 40%;
 
 ### рабочий все носки
 GET http://localhost:8080/api/sock

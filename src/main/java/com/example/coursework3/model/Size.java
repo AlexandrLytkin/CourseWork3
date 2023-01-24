@@ -1,9 +1,7 @@
 package com.example.coursework3.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.jetbrains.annotations.Nullable;
 
 public enum Size {
     SIZE_37(37),
@@ -15,7 +13,6 @@ public enum Size {
     Size(int size) {
         this.intValue = size;
     }
-
 
     @JsonCreator
     public static Size forValues(Integer strSize) {
