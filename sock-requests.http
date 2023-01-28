@@ -51,17 +51,8 @@ Content-Type: application/json
   "quantity": 25
 }
 
-### не рабочий !!!
-POST http://localhost:8080/api/sock?color=RED&size=37&cottonPart=40&quantity=5
-### не рабочий !!!
-PUT http://localhost:8080/api/sock?COLOR=RED&size=37&cottonPart=40&quantity=5
-
-### нужно реализовать
-GET http://localhost:8080/api/sock?color=YELLOW&SIZE=37&cottonMin=0
-### нужно реализовать
-GET http://localhost:8080/api/sock?color=BLACK&size=37
-
-
+### рабочий носки 37
+GET http://localhost:8080/api/sock?size=37
 ### рабочий все носки
 GET http://localhost:8080/api/sock
 ### рабочий все черные носки
